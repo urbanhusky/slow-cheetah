@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>urbanhusky.SlowCheetah</id>
-    <version>2.5.14</version>
+    <version>2.5.14.1</version>
     <authors>Sayed Ibrahim Hashimi, Thomas Mühlgrabner</authors>
     <owners>Thomas Mühlgrabner</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
@@ -10,11 +10,20 @@
     <!-- <iconUrl></iconUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-      Fork of SlowCheetah with per-user transform.
-      For per-user transform name your transform-file like {File}.{Configuration}.{Username}.{extension}. For example: App.Debug.urbanhusky.config
-      
-      You can use this NuGet package to install the SlowCheetah MSBuild targets/tasks into your solution. 
-    This can be useful for command line build scenarios as well as cases where not all your team members have installed the SlowCheetah add in.
+Fork of SlowCheetah with additional per-user (and configuration) transformations.
+For per-user transform, name your transform-file like {file}.{configuration}.{username}.{extension}. For example: App.Debug.urbanhusky.config.
+Per-user transformations are applied after per-configuration transformations (i.e. "App.Debug.config" is applied before "App.Debug.urbanhusky.config").
+
+You can use this NuGet package to install the SlowCheetah MSBuild targets/tasks into your solution.
+This can be useful for command line build scenarios as well as cases where not all your team members have installed the SlowCheetah add in.
+
+To enable transformations, you must either install the SlowCheetah Visual Studio extension (currently there are two versions: a preview for VS 2015 and another one for older versions) and enable the transformation on the desired configuration file,
+or you'll have to define &lt;TransformOnBuild&gt;true&lt;/TransformOnBuild&gt; in the project file for the desired file, such as:
+&lt;ItemGroup&gt;
+  &lt;None Include="App.config"&gt;
+    &lt;TransformOnBuild&gt;true&lt;/TransformOnBuild&gt;
+  &lt;/None&gt;
+&lt;/ItemGroup&gt;
     </description>
     <!-- <releaseNotes></releaseNotes> -->
     <copyright>Copyright 2012-2016 Sayed Ibrahim Hashimi, Thomas Mühlgrabner</copyright>
