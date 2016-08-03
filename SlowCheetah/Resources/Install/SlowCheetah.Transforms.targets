@@ -12,13 +12,13 @@ This file defines the steps in order to transform XML files.
 Copyright (C) Sayed Ibrahim Hashimi, Chuck England 2011-2013. All rights reserved.
 
 Modifications:
-2016-08-03 Thomas Mühlgrabner: Added per-user transform capabilities
+2016-08-03 Thomas Mühlgrabner: Added per-user transform capabilities, avoid conflicts with original SC
 ***********************************************************************************************
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <sc-MSBuildLibPathLocal Condition=" '$(sc-MSBuildLibPathLocal)'=='' ">$(LocalAppData)\Microsoft\MSBuild\SlowCheetah\v2.5.11\</sc-MSBuildLibPathLocal>
+    <sc-MSBuildLibPathLocal Condition=" '$(sc-MSBuildLibPathLocal)'=='' ">$(LocalAppData)\Microsoft\MSBuild\urbanhusky.SlowCheetah\v2.5.14\</sc-MSBuildLibPathLocal>
 
     <!-- this property should be defined in the .csproj to point to the packages path -->
     <SlowCheetahToolsPath Condition=" '$(SlowCheetahToolsPath)'=='' ">$(MSBuildThisFileDirectory)</SlowCheetahToolsPath>
